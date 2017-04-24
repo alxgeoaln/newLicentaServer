@@ -4,7 +4,8 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var morgan = require("morgan");
 const cors = require('cors');
-mongoose.connect('mongodb://sa:ggprojects4dev@ds029585.mlab.com:29585/pin');
+// mongoose.connect('mongodb://sa:ggprojects4dev@ds029585.mlab.com:29585/pin');
+mongoose.connect('mongodb://galin:mcwtuyokzmn1@ds117311.mlab.com:17311/lienta-db');
 // mongoose.connect('mongodb://localhost/licenta2017');
 
 //Init App

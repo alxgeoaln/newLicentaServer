@@ -6,6 +6,12 @@ var validateEmail = function (email) {
     return (/\S+@\S+\.\S+/).test(email)
 };
 
+var todoSchema = new Schema({
+    todo: {
+        text: String
+    }
+});
+
 var userSchema = new Schema({
     email: {
         type: String,
@@ -19,7 +25,8 @@ var userSchema = new Schema({
     // },
     password: {
         type: String
-    }
+    },
+    todo: [todoSchema]
 });
 
 const User = module.exports = mongoose.model('User', userSchema);
@@ -47,4 +54,9 @@ module.exports.comparePassword = function (candidatePassword, hash, callback) {
         if (err) throw err;
         callback(null, isMatch);
     })
+};
+
+module.exports.saveTodo = function (userId, todo, callback) {
+    User.update({_id: userId},
+        {$push: {'todo': todo}}, {upsert: true}, callback)
 };

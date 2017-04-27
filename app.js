@@ -5,8 +5,8 @@ var bodyParser = require('body-parser');
 var morgan = require("morgan");
 const cors = require('cors');
 // mongoose.connect('mongodb://sa:ggprojects4dev@ds029585.mlab.com:29585/pin');
-mongoose.connect('mongodb://galin:mcwtuyokzmn1@ds117311.mlab.com:17311/lienta-db');
-// mongoose.connect('mongodb://localhost/licenta2017');
+// mongoose.connect('mongodb://galin:mcwtuyokzmn1@ds117311.mlab.com:17311/lienta-db');
+mongoose.connect('mongodb://localhost/licenta2017');
 
 //Init App
 var app = express();
@@ -25,10 +25,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 var index = require('./routes/index');
 var register = require('./routes/register');
 var login = require('./routes/login');
+var todo = require('./routes/todo');
 
 app.use('/', index);
 app.use('/register', register);
 app.use('/login', login);
+app.use('/todo', todo);
 
 //Set Port
 

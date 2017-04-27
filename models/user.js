@@ -7,8 +7,11 @@ var validateEmail = function (email) {
 };
 
 var todoSchema = new Schema({
-    todo: {
-        text: String
+    text: {
+        type: String
+    },
+    userId: {
+        type: String
     }
 });
 

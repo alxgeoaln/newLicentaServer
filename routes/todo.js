@@ -4,11 +4,12 @@ var requireAuth = passport.authenticate('jwt', {session: false});
 var User = require('../models/user');
 
 router.post('/', function (req, res) {
-    userId = req.body.id;
-    todo =
-        {
-            todo: req.body.text
-        };
+
+    var userId = Object(req.body.userId);
+    var todo = {
+        text: req.body.text,
+        userId: req.body.userId
+    };
 
     User.saveTodo(userId, todo, function (err, todo) {
         if (err)

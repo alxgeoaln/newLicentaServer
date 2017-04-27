@@ -3,8 +3,8 @@ var passport = require('passport');
 var requireAuth = passport.authenticate('jwt', {session: false});
 var User = require('../models/user');
 
-router.post('/', requireAuth, function (req, res) {
-    userId = req.user._id;
+router.post('/', function (req, res) {
+    userId = req.body.id;
     todo =
         {
             todo: req.body.text

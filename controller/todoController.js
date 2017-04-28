@@ -15,6 +15,22 @@ exports.create = function (req, res, next) {
 };
 
 exports.index = function (req, res, next) {
-    // res.json('pula')
     res.json({todos: req.user.todo})
+};
+exports.destroy = function (req, res, next) {
+    var user = req.user;
+    var todo_id = req.params.todo_id;
+
+    user.todo = user.todos.filter(function (todo) {
+        if (todo._id == todo_id) {
+            return false;
+        }
+        return true;
+    });
+    user.save(function (err) {
+        if (err) {
+            return next(err)
+        }
+        res.json({});
+    })
 };

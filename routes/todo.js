@@ -21,8 +21,15 @@ var User = require('../models/user');
 //     })
 // });
 
+//#region Get and Post Todos
 router.route('/users/:user_id/todos')
     .post(requireAuth, TodosController.create)
     .get(requireAuth, TodosController.index);
+//endregion
+
+//#region Delete Todos
+router.route('/users/:user_id/todos/:todo_id')
+    .delete(requireAuth, TodosController.destroy);
+//endregion
 
 module.exports = router;

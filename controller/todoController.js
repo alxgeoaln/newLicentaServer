@@ -1,3 +1,5 @@
+var User = require('../models/user');
+
 exports.create = function (req, res, next) {
     var user = req.user;
     var text = req.body.text;
@@ -13,9 +15,17 @@ exports.create = function (req, res, next) {
         res.json({todo: {text: text, _id: _id}})
     })
 };
-
 exports.index = function (req, res, next) {
-    res.json({todos: req.user.todo})
+    var userId = req.user._id;
+
+    User.findUserId(userId, function (err, user) {
+        if (err)
+            res.json({success: false, message: err})
+        else
+            res.json({todos: user.todo});
+    })
+
+    // res.json({todos: req.user.todo})
 };
 exports.destroy = function (req, res, next) {
     var user = req.user;

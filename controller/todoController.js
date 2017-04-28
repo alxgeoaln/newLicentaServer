@@ -1,10 +1,11 @@
 exports.create = function (req, res, next) {
     var user = req.user;
     var text = req.body.text;
-    var count = user.todos.push({
+    var count = user.todo.push({
         text: text
     });
-    var _id = user.todos[count - 1]._id;
+    var _id = user.todo[count - 1]._id;
+    console.log(_id);
     user.save(function (err) {
         if (err) {
             return next(err)

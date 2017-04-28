@@ -22,6 +22,7 @@ var User = require('../models/user');
 // });
 
 router.route('/users/:user_id/todos')
+    .post(requireAuth, TodosController.create)
     .get(requireAuth, TodosController.index);
 
 module.exports = router;

@@ -29,7 +29,7 @@ router.route('/users/:user_id/todos')
 
 //#region Delete Todos
 router.route('/users/:user_id/todos/:todo_id')
-    .delete(requireAuth, TodosController.destroy);
+    .post(requireAuth, TodosController.destroy);
 //endregion
 
 module.exports = router;

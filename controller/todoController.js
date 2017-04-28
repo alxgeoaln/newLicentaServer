@@ -21,7 +21,7 @@ exports.destroy = function (req, res, next) {
     var user = req.user;
     var todo_id = req.params.todo_id;
 
-    user.todo = user.todos.filter(function (todo) {
+    user.todo = user.todo.filter(function (todo) {
         if (todo._id == todo_id) {
             return false;
         }

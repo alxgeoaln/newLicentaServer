@@ -9,9 +9,6 @@ var validateEmail = function (email) {
 var todoSchema = new Schema({
     text: {
         type: String
-    },
-    userId: {
-        type: String
     }
 });
 

@@ -15,5 +15,6 @@ exports.create = function (req, res, next) {
 };
 
 exports.index = function (req, res, next) {
-    res.json({todos: req.user.todos})
+    // res.json('pula')
+    res.json({todos: req.user.todo})
 };

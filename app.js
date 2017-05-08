@@ -25,11 +25,13 @@ var index = require('./routes/index');
 var register = require('./routes/register');
 var login = require('./routes/login');
 var todo = require('./routes/todo');
+var phoneNumber = require('./routes/phoneNumber');
 
 app.use('/', index);
 app.use('/register', register);
 app.use('/login', login);
 app.use('/todo', todo);
+app.use('/phoneNumber', phoneNumber);
 
 //Set Port
 

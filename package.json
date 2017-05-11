@@ -21,6 +21,7 @@
     "passport": "^0.3.2",
     "passport-jwt": "^2.2.1",
     "passport-local": "^1.0.0",
+    "util": "^0.10.3",
     "uuid": "*",
     "xoauth2": "^1.2.0"
   }

@@ -18,6 +18,7 @@ var phoneNumberSchema = new Schema({
     name: String
 });
 
+
 var userSchema = new Schema({
     email: {
         type: String,

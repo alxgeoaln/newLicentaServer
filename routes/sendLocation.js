@@ -3,6 +3,7 @@ var User = require('../models/user');
 var jwt = require('jwt-simple');
 var config = require('../config');
 var passport = require('passport');
+var util = require('util');
 var requireAuth = passport.authenticate('jwt', {session: false});
 const nodemailer = require('nodemailer');
 
@@ -16,6 +17,10 @@ function tokenForUser(user) {
 
 router.post('/sendEmail', requireAuth, function (req, res) {
     const userId = req.user._id;
+    const lat = req.body.lat;
+    const long = req.body.lon;
+    const googleMapsLink = "https://www.google.ro/maps/@'" + lat + "','" + long + "'16z?hl=en";
+    console.log(googleMapsLink)
 
     User.findUserId(userId, function (err, user) {
         if (err) {
@@ -36,8 +41,8 @@ router.post('/sendEmail', requireAuth, function (req, res) {
             const mailOptions = {
                 from: 'Georgian <georgianalinalexandru@gmail.com>', // sender address
                 to: emails, // list of receivers
-                subject: 'Works', // Subject line
-                html: 'muie<b>kur</b> <a>www.pornhub.com</a>' // html body
+                subject: 'Licenta', // Subject line
+                html: '<p>Am facut accident in aceasta <a href="googleMapsLink">locatie</a> </p>' // html body
             };
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {

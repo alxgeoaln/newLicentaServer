@@ -19,8 +19,8 @@ router.post('/sendEmail', requireAuth, function (req, res) {
     const userId = req.user._id;
     const lat = req.body.lat;
     const long = req.body.lon;
-    const googleMapsLink = "https://www.google.ro/maps/@'" + lat + "','" + long + "'16z?hl=en";
-    console.log(googleMapsLink)
+
+    const address = req.body.address;
 
     User.findUserId(userId, function (err, user) {
         if (err) {
@@ -42,7 +42,7 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                 from: 'Georgian <georgianalinalexandru@gmail.com>', // sender address
                 to: emails, // list of receivers
                 subject: 'Licenta', // Subject line
-                html: '<p>Am facut accident in aceasta <a href="googleMapsLink">locatie</a> </p>' // html body
+                html: '<p>Am facut accident la adresa: address </p>' // html body
             };
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {

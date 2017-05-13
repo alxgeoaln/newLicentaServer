@@ -20,8 +20,7 @@ router.post('/sendEmail', requireAuth, function (req, res) {
     const lat = req.body.lat;
     const long = req.body.lon;
 
-    const address = req.body.address;
-
+    // const address = req.body.address;
     User.findUserId(userId, function (err, user) {
         if (err) {
             console.log(err)
@@ -42,7 +41,7 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                 from: 'Georgian <georgianalinalexandru@gmail.com>', // sender address
                 to: emails, // list of receivers
                 subject: 'Licenta', // Subject line
-                html: '<p>Am facut accident la adresa: address </p>' // html body
+                html: '<p>Am facut accident in aceasta <a href="googleMapsLink">locatie</a> </p>' // html body
             };
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {

@@ -41,7 +41,7 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                 from: 'Georgian <georgianalinalexandru@gmail.com>', // sender address
                 to: emails, // list of receivers
                 subject: 'Licenta', // Subject line
-                html: '<p>Am facut accident la aceasta adresa: <b>address</b> </p>' // html body
+                html: '<p>Am facut accident la aceasta adresa: <b>"'+ address +'"</b> </p>' // html body
             };
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {

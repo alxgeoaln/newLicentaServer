@@ -13,7 +13,7 @@ function tokenForUser(user) {
 
 router.post('/', function (req, res) {
     const newUser = new User({
-        // name: req.body.name,
+        name: req.body.name,
         email: req.body.email,
         password: req.body.password
     });

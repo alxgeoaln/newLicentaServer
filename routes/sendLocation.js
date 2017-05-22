@@ -25,11 +25,14 @@ router.post('/sendEmail', requireAuth, function (req, res) {
         if (err) {
             console.log(err)
         } else {
+            var userEmail = user.email;
+            var name = user.name;
+            console.log(userEmail);
             var contacts = user.phoneNumber;
             var emails = contacts.map(function (email) {
                 return email.number
             });
-            res.json(emails)
+            res.json(emails);
             const transporter = nodemailer.createTransport({
                 service: 'gmail',
                 auth: {
@@ -38,10 +41,10 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                 }
             });
             const mailOptions = {
-                from: 'Georgian <georgianalinalexandru@gmail.com>', // sender address
+                from: userEmail, // sender address
                 to: emails, // list of receivers
                 subject: 'Licenta', // Subject line
-                html: '<p>Am facut accident la aceasta adresa: <b>"'+ address +'"</b> </p>' // html body
+                html: '<style></style><h1>Licenta</h1><p>'+ name +' a facut accident la aceasta adresa: <b>'+ address +'</b> </p>' // html body
             };
             transporter.sendMail(mailOptions, function (error, info) {
                 if (error) {

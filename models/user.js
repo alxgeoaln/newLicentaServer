@@ -27,9 +27,9 @@ var userSchema = new Schema({
         required: "Adresa de email este necesara.",
         validate: [validateEmail, "Va rog introduceti o adresa de email valida."]
     },
-    // name: {
-    //     type: String
-    // },
+    name: {
+        type: String
+    },
     password: {
         type: String
     },

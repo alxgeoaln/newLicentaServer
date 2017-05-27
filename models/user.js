@@ -39,6 +39,8 @@ var userSchema = new Schema({
 
 const User = module.exports = mongoose.model('User', userSchema);
 
+
+//#region User methods
 module.exports.getUserByEmail = function (email, callback) {
     const query = {email: email};
     User.findOne(query, callback)
@@ -68,4 +70,5 @@ module.exports.saveTodo = function (userId, todo, callback) {
 module.exports.getUserById = function (id, callback) {
     User.findById(id, callback)
 };
+//endregion
 

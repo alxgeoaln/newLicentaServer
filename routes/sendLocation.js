@@ -38,9 +38,9 @@ router.post('/sendEmail', requireAuth, function (req, res) {
         } else {
             var userEmail = user.email;
             var name = user.name;
-            var contacts = user.phoneNumber;
+            var contacts = user.contact;
             var emails = contacts.map(function (email) {
-                return email.number
+                return email.email
             });
             const location = new Location({
                 lat: lat,

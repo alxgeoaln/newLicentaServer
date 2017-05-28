@@ -13,9 +13,9 @@ router.route('/users/:user_id/contact')
     .get(requireAuth, ContactController.index);
 //endregion
 
-//#region Delete Todos
-router.route('/users/:user_id/todos/:todo_id')
-// .delete(requireAuth, TodosController.destroy);
+//#region Delete Contacts
+router.route('/users/:user_id/contact/:contact_id')
+    .delete(requireAuth, ContactController.destroy);
 //endregion
 
 module.exports = router;

@@ -32,10 +32,10 @@ exports.index = function (req, res, next) {
 
 exports.destroy = function (req, res, next) {
     var user = req.user;
-    var todo_id = req.params.todo_id;
+    var contact_id = req.params.contact_id;
 
-    user.todo = user.todo.filter(function (todo) {
-        if (todo._id == todo_id) {
+    user.contact = user.contact.filter(function (contact) {
+        if (contact._id == contact_id) {
             return false;
         }
         return true;

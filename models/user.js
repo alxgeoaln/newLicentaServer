@@ -11,8 +11,8 @@ var todoSchema = new Schema({
         type: String
     }
 });
-var phoneNumberSchema = new Schema({
-    number: {
+var contactSchema = new Schema({
+    email: {
         type: String
     },
     name: String
@@ -33,7 +33,7 @@ var userSchema = new Schema({
     password: {
         type: String
     },
-    phoneNumber: [phoneNumberSchema],
+    contact: [contactSchema],
     todo: [todoSchema]
 });
 

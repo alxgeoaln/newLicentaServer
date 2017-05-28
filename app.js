@@ -4,8 +4,8 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var morgan = require("morgan");
 const cors = require('cors');
-mongoose.connect('mongodb://galin:mcwtuyokzmn1@ds117311.mlab.com:17311/lienta-db');
-// mongoose.connect('mongodb://localhost/licenta2017');
+// mongoose.connect('mongodb://galin:mcwtuyokzmn1@ds117311.mlab.com:17311/lienta-db');
+mongoose.connect('mongodb://localhost/licenta2017');
 
 //Init App
 var app = express();
@@ -25,14 +25,14 @@ var index = require('./routes/index');
 var register = require('./routes/register');
 var login = require('./routes/login');
 var todo = require('./routes/todo');
-var phoneNumber = require('./routes/phoneNumber');
+var contact = require('./routes/contact');
 var sendLocation = require('./routes/sendLocation');
 
 app.use('/', index);
 app.use('/register', register);
 app.use('/login', login);
 app.use('/todo', todo);
-app.use('/phoneNumber', phoneNumber);
+app.use('/contact', contact);
 app.use('/sendLocation', sendLocation);
 
 //Set Port

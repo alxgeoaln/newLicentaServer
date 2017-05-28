@@ -2,18 +2,19 @@ var User = require('../models/user');
 
 exports.create = function (req, res, next) {
     var user = req.user;
-    var number = req.body.number;
+    var email = req.body.email;
     var name = req.body.name;
-    var count = user.phoneNumber.push({
-        number: number,
+    var count = user.contact.push({
+        email: email,
         name: name
     });
-    var _id = user.phoneNumber[count - 1]._id;
+    console.log(user.contact);
+    var _id = user.contact[count - 1]._id;
     user.save(function (err) {
         if (err) {
             return next(err)
         }
-        res.json({phoneNumber: {number: number, name: name, _id: _id}})
+        res.json({contact: {email: email, name: name, _id: _id}})
     })
 };
 
@@ -24,11 +25,11 @@ exports.index = function (req, res, next) {
         if (err)
             res.json({success: false, message: err})
         else
-            res.json({phoneNumbers: user.phoneNumber});
+            res.json({contacts: user.contact});
     })
 
-    // res.json({todos: req.user.todo})
 };
+
 exports.destroy = function (req, res, next) {
     var user = req.user;
     var todo_id = req.params.todo_id;

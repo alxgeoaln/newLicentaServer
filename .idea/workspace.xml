@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cf5d41f1-300b-4fbe-b55e-14f368d1b462" name="Default" comment="" />
+    <list default="true" id="cf5d41f1-300b-4fbe-b55e-14f368d1b462" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -15,7 +17,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="160">
@@ -42,6 +44,22 @@
               <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
               <folding>
                 <marker date="1495997676854" expanded="false" signature="810:1146" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sendLocation.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/sendLocation.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="440">
+              <caret line="22" column="36" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="36" />
+              <folding>
+                <element signature="e#1227#1278#0" expanded="false" />
+                <element signature="e#1663#1694#0" expanded="false" />
+                <element signature="e#1758#1975#0" expanded="false" />
+                <element signature="e#2014#2349#0" expanded="false" />
+                <element signature="e#2424#2548#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -365,16 +383,15 @@
       <workItem from="1495479177324" duration="4112000" />
       <workItem from="1495908368754" duration="1955000" />
       <workItem from="1495924531016" duration="4093000" />
-      <workItem from="1495994126884" duration="5125000" />
+      <workItem from="1495994126884" duration="6287000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="57920000" />
+    <option name="totallyTimeSpent" value="59082000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="952" y="0" width="976" height="1038" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25511304" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -383,7 +400,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29438716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.95418096" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32875144" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
     </layout>
@@ -719,20 +736,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/routes/sendLocation.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="26" column="44" lean-forward="false" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
-          <folding>
-            <element signature="e#1227#1278#0" expanded="false" />
-            <element signature="e#1663#1694#0" expanded="false" />
-            <element signature="e#1758#1975#0" expanded="false" />
-            <element signature="e#2014#2349#0" expanded="false" />
-            <element signature="e#2424#2548#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/routes/register.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
@@ -780,6 +783,20 @@
         <state relative-caret-position="160">
           <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/sendLocation.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="440">
+          <caret line="22" column="36" lean-forward="false" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="36" />
+          <folding>
+            <element signature="e#1227#1278#0" expanded="false" />
+            <element signature="e#1663#1694#0" expanded="false" />
+            <element signature="e#1758#1975#0" expanded="false" />
+            <element signature="e#2014#2349#0" expanded="false" />
+            <element signature="e#2424#2548#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

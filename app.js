@@ -15,12 +15,10 @@ app.set('view engine', 'html');
 //Body Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
-
 app.use(morgan("dev"));
 
 //Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
-
 var index = require('./routes/index');
 var register = require('./routes/register');
 var login = require('./routes/login');

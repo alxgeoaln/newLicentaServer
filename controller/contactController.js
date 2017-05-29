@@ -8,7 +8,6 @@ exports.create = function (req, res, next) {
         email: email,
         name: name
     });
-    console.log(user.contact);
     var _id = user.contact[count - 1]._id;
     user.save(function (err) {
         if (err) {

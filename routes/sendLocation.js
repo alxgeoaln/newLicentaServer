@@ -65,7 +65,7 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                     from: userEmail, // sender address
                     to: emails, // list of receivers
                     subject: 'Licenta', // Subject line
-                    html: '<h1>Licenta</h1><p>' + name + ' a facut accident la aceasta adresa: <b>' + address + '</b></p><p>Click <a href="https://www.google.ro/maps/@'+lat+','+lng+'z?hl=en">aici</a> pentru vizualizarea adresei pe harta.</p>' // html body
+                    html: '<h1>Licenta</h1><p>' + name + ' a facut accident la aceasta adresa: <b>' + address + '</b></p><p>Click <a href="https://www.google.ro/maps/@'+lat+','+lng+'z?hl=en">aici</a> pentru vizualizarea adresei pe harta.</p><p>https://www.google.ro/maps/@'+lat+','+lng+'z?hl=en</p>' // html body
                 };
                 transporter.sendMail(mailOptions, function (error, info) {
                     if (error) {

@@ -19,9 +19,9 @@ app.use(morgan("dev"));
 
 //Set Static Folder
 app.use(express.static(path.join(__dirname, 'public')));
-app.use(function (req, res) {
-    res.sendfile(__dirname + '/public/index.html')
-});
+// app.use(function (req, res) {
+//     res.sendfile(__dirname + '/public/index.html')
+// });
 
 var index = require('./routes/index');
 var register = require('./routes/register');

@@ -22,15 +22,8 @@ router.post('/sendEmail', requireAuth, function (req, res) {
     const lng = req.body.lon;
     const address = req.body.address;
     const isActive = false;
-
-    //#region Get current Date
-    var date = new Date(0);
-    const currentDate = date.toLocaleString('de-DE', {hour: '2-digit', hour12: false, timeZone: 'Europe/Bucharest'});
-    //endregion
-
-    //#region Get current time
-    // var thisTime = date.getTime() / 1000;
-    //endregion
+    const dateTime = req.body.dateTime;
+    console.log(dateTime);
 
 
     User.findUserId(userId, function (err, user) {
@@ -48,7 +41,7 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                 lng: lng,
                 address: address,
                 author: name,
-                createdAt: currentDate,
+                createdAt: dateTime,
                 isActive: isActive
             });
 

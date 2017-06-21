@@ -40,8 +40,7 @@ var LocationListComponent = (function () {
         headers.append('Content-Type', 'application/json');
         __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__["Observable"].interval(3000)
             .flatMap(function () { return _this.http.get('getRequests/', { headers: headers })
-            .map(function (res) { return res.json(); })
-            .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); }); })
+            .map(function (res) { return res.json(); }); })
             .subscribe(function (data) {
             _this.locations = data;
         });

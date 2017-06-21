@@ -39,7 +39,7 @@ var LocationListComponent = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__["Observable"].interval(3000)
-            .flatMap(function () { return _this.http.get('http://localhost:3000/getRequests/', { headers: headers })
+            .flatMap(function () { return _this.http.get('getRequests/', { headers: headers })
             .map(function (res) { return res.json(); })
             .catch(function (error) { return __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__["Observable"].throw(error.json().error || 'Server error'); }); })
             .subscribe(function (data) {

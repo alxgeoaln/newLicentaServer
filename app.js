@@ -11,7 +11,7 @@ mongoose.connect('mongodb://galin:mcwtuyokzmn1@ds117311.mlab.com:17311/lienta-db
 var app = express();
 
 app.set('view engine', 'html');
-
+app.use(cors());
 //Body Parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -25,6 +25,7 @@ var login = require('./routes/login');
 var todo = require('./routes/todo');
 var contact = require('./routes/contact');
 var sendLocation = require('./routes/sendLocation');
+var getRequests = require('./routes/dispatch/getRequests');
 
 app.use('/', index);
 app.use('/register', register);
@@ -33,10 +34,14 @@ app.use('/todo', todo);
 app.use('/contact', contact);
 app.use('/sendLocation', sendLocation);
 
+//region Dispatch
+app.use('/getRequests', getRequests);
+//endregion
+
 //Set Port
 
+
 app.set('port', (process.env.PORT || 3000));
-app.use(cors());
 
 
 app.listen(app.get('port'), function () {

@@ -21,14 +21,15 @@ router.post('/sendEmail', requireAuth, function (req, res) {
     const lat = req.body.lat;
     const lng = req.body.lon;
     const address = req.body.address;
+    const isActive = false;
 
     //#region Get current Date
-    var date = new Date();
-    const currentDate = date.setUTCHours(2);
+    var date = new Date(0);
+    const currentDate = date.toLocaleString('de-DE', {hour: '2-digit', hour12: false, timeZone: 'Europe/Bucharest'});
     //endregion
 
     //#region Get current time
-    var thisTime = date.getTime() / 1000;
+    // var thisTime = date.getTime() / 1000;
     //endregion
 
 
@@ -48,7 +49,7 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                 address: address,
                 author: name,
                 createdAt: currentDate,
-                time: thisTime
+                isActive: isActive
             });
 
             Location.saveLocation(location, function (err, thisLocation) {

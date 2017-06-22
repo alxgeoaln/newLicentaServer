@@ -62,6 +62,7 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                 createdAt: dateTime,
                 isActive: isActive
             });
+            console.log(location);
 
             Location.saveLocation(location, function (err, thisLocation) {
                 if (err) console.log(err);

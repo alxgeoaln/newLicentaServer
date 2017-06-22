@@ -50,19 +50,19 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                 }
                 //endregion
 
+                const location = new Location({
+                    id: id,
+                    lat: lat,
+                    lng: lng,
+                    address: address,
+                    author: name,
+                    createdAt: dateTime,
+                    isActive: isActive
+                });
+                console.log(location);
             });
             //endregion
 
-            const location = new Location({
-                id: id,
-                lat: lat,
-                lng: lng,
-                address: address,
-                author: name,
-                createdAt: dateTime,
-                isActive: isActive
-            });
-            console.log(location);
 
             Location.saveLocation(location, function (err, thisLocation) {
                 if (err) console.log(err);

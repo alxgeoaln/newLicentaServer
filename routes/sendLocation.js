@@ -39,6 +39,8 @@ router.post('/sendEmail', requireAuth, function (req, res) {
             //region Get locations
             Location.getLocation(function (err, locations) {
 
+                if(err) console.log (err);
+
                 //region Add id to location object
                 var locationsLength = locations.length;
                 console.log(locationsLength);
@@ -59,35 +61,35 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                     createdAt: dateTime,
                     isActive: isActive
                 });
-                console.log(location);
+                Location.saveLocation(location, function (err, thisLocation) {
+                    if (err) console.log(err);
+                    //#region Send mail to contacts
+                    const transporter = nodemailer.createTransport({
+                        service: 'gmail',
+                        auth: {
+                            user: 'georgianalinalexandru@gmail.com',
+                            pass: 'mcwtuyokzmn1'
+                        }
+                    });
+                    const mailOptions = {
+                        from: userEmail, // sender address
+                        to: emails, // list of receivers
+                        subject: 'Licenta', // Subject line
+                        html: '<h1>Licenta</h1><p>' + name + ' a facut accident la aceasta adresa: <b>' + address + '</b></p><p>Click <a href="http://maps.google.com/maps?daddr=' + lat + ',' + lng + '"><b>aici</b></a> pentru vizualizarea adresei pe harta.</p>' // html body
+                    };
+                    transporter.sendMail(mailOptions, function (error, info) {
+                        if (error) {
+                            return console.log(error)
+                        }
+                    });
+                    //endregions
+                    res.json({success: true, message: 'Location has been successfully posted'});
+                });
             });
             //endregion
 
 
-            Location.saveLocation(location, function (err, thisLocation) {
-                if (err) console.log(err);
-                //#region Send mail to contacts
-                const transporter = nodemailer.createTransport({
-                    service: 'gmail',
-                    auth: {
-                        user: 'georgianalinalexandru@gmail.com',
-                        pass: 'mcwtuyokzmn1'
-                    }
-                });
-                const mailOptions = {
-                    from: userEmail, // sender address
-                    to: emails, // list of receivers
-                    subject: 'Licenta', // Subject line
-                    html: '<h1>Licenta</h1><p>' + name + ' a facut accident la aceasta adresa: <b>' + address + '</b></p><p>Click <a href="http://maps.google.com/maps?daddr=' + lat + ',' + lng + '"><b>aici</b></a> pentru vizualizarea adresei pe harta.</p>' // html body
-                };
-                transporter.sendMail(mailOptions, function (error, info) {
-                    if (error) {
-                        return console.log(error)
-                    }
-                });
-                //endregions
-                res.json({success: true, message: 'Location has been successfully posted'});
-            });
+
 
 
         }

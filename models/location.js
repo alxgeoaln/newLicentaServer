@@ -18,7 +18,7 @@ module.exports.saveLocation = function (location, callback) {
 };
 
 module.exports.getLocation = function (callback) {
-    Location.find({}).select({}).exec(callback)
+    Location.find({}).sort({createdAt: 'descending'}).select({}).exec(callback)
 };
 
 

@@ -23,7 +23,6 @@ router.post('/sendEmail', requireAuth, function (req, res) {
     const address = req.body.address;
     const isActive = false;
     const dateTime = req.body.dateTime;
-    console.log(dateTime);
 
 
     User.findUserId(userId, function (err, user) {

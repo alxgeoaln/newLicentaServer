@@ -39,7 +39,7 @@ router.post('/sendEmail', requireAuth, function (req, res) {
             //region Get locations
             Location.getLocation(function (err, locations) {
 
-                if(err) console.log (err);
+                if (err) console.log(err);
 
                 //region Add id to location object
                 var locationsLength = locations.length;
@@ -52,6 +52,9 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                 }
                 //endregion
 
+                //Get month
+                const month = new Date().getMonth();
+
                 const location = new Location({
                     id: id,
                     lat: lat,
@@ -59,7 +62,8 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                     address: address,
                     author: name,
                     createdAt: dateTime,
-                    isActive: isActive
+                    isActive: isActive,
+                    month: month
                 });
                 Location.saveLocation(location, function (err, thisLocation) {
                     if (err) console.log(err);

@@ -2,13 +2,14 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 var locationSchema = new Schema({
-    id: String,
+    id: Number,
     lat: String,
     lng: String,
     createdAt: Date,
     author: String,
     address: String,
-    isActive: Boolean
+    isActive: Boolean,
+    month: Number
 });
 
 const Location = module.exports = mongoose.model('Location', locationSchema);

@@ -14,6 +14,18 @@ router.get('/', function (req, res) {
 });
 //endregion
 
+router.get('/acc', function (req, res) {
+    Location.getLocation(function (err, locations) {
+        if (err) {
+            res.json({success: false, message: 'Please try again later'});
+            console.log(err);
+        } else {
+           const date = new Date().getMonth();
+           res.json(date)
+        }
+    })
+});
+
 //region Get specific result
 router.get('/:id', function (req, res) {
 
@@ -44,5 +56,6 @@ router.get('/updateStatus/:id', function (req, res) {
     })
 });
 //endregion
+
 
 module.exports = router;

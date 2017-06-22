@@ -32,7 +32,12 @@ router.post('/sendEmail', requireAuth, function (req, res) {
 
             //region Add id to location object
             var userLength = user.length;
-            var id = userLength + 1;
+            var id;
+            if (userLength === 0) {
+                id = 1;
+            } else {
+                id = userLength + 1;
+            }
             //endregion
 
             var userEmail = user.email;
@@ -65,7 +70,7 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                     from: userEmail, // sender address
                     to: emails, // list of receivers
                     subject: 'Licenta', // Subject line
-                    html: '<h1>Licenta</h1><p>' + name + ' a facut accident la aceasta adresa: <b>' + address + '</b></p><p>Click <a href="http://maps.google.com/maps?daddr='+ lat +','+ lng+'"><b>aici</b></a> pentru vizualizarea adresei pe harta.</p>' // html body
+                    html: '<h1>Licenta</h1><p>' + name + ' a facut accident la aceasta adresa: <b>' + address + '</b></p><p>Click <a href="http://maps.google.com/maps?daddr=' + lat + ',' + lng + '"><b>aici</b></a> pentru vizualizarea adresei pe harta.</p>' // html body
                 };
                 transporter.sendMail(mailOptions, function (error, info) {
                     if (error) {

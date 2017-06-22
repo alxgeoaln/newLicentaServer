@@ -23,31 +23,36 @@ router.post('/sendEmail', requireAuth, function (req, res) {
     const address = req.body.address;
     const isActive = false;
     const dateTime = req.body.dateTime;
-
+    var id;
 
     User.findUserId(userId, function (err, user) {
         if (err) {
             console.log(err)
         } else {
-            console.log(user);
-
-            //region Add id to location object
-            var userLength = user.length;
-            console.log(userLength);
-            var id;
-            if (userLength === 0) {
-                id = 1;
-            } else {
-                id = userLength + 1;
-            }
-            //endregion
-
             var userEmail = user.email;
             var name = user.name;
             var contacts = user.contact;
             var emails = contacts.map(function (email) {
                 return email.email
             });
+
+            //region Get locations
+            Location.getLocation(function (err, locations) {
+
+                //region Add id to location object
+                var locationsLength = locations.length;
+                console.log(locationsLength);
+
+                if (locationsLength === 0) {
+                    id = 1;
+                } else {
+                    id = locationsLength + 1;
+                }
+                //endregion
+
+            });
+            //endregion
+
             const location = new Location({
                 id: id,
                 lat: lat,

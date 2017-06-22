@@ -474,7 +474,7 @@ module.exports = "<router-outlet></router-outlet>\n"
 /***/ 235:
 /***/ (function(module, exports) {
 
-module.exports = "<table class=\"table table-striped table-hover \">\n  <thead>\n  <tr>\n    <th>#</th>\n    <th>Nume</th>\n    <th>Data</th>\n    <th>Adresa</th>\n    <th>Actiuni</th>\n  </tr>\n  </thead>\n  <tbody>\n  <tr *ngFor=\"let location of locations; let i = index\" >\n    <td [ngClass]=\"location.isActive ? '' : 'danger'\">{{i + 1}}</td>\n    <td>{{location.author}}</td>\n    <td>{{location.createdAt | date:'short'}}</td>\n    <td>{{location.address}}</td>\n    <td>\n      <button class=\"btn btn-success btn-xs\" (click)=\"updateLocation(location)\" [routerLink] = \"['/location-list', location._id]\">Arata locatia</button>\n    </td>\n  </tr>\n  </tbody>\n</table>\n"
+module.exports = "<table class=\"table table-striped table-hover \">\n  <thead>\n  <tr>\n    <th>#</th>\n    <th>Nume</th>\n    <th>Data</th>\n    <th>Adresa</th>\n    <th>Actiuni</th>\n  </tr>\n  </thead>\n  <tbody>\n  <tr *ngFor=\"let location of locations;\" >\n    <td [ngClass]=\"location.isActive ? '' : 'danger'\">{{location.id}}</td>\n    <td>{{location.author}}</td>\n    <td>{{location.createdAt | date:'short'}}</td>\n    <td>{{location.address}}</td>\n    <td>\n      <button class=\"btn btn-success btn-xs\" (click)=\"updateLocation(location)\" [routerLink] = \"['/location-list', location._id]\">Arata locatia</button>\n    </td>\n  </tr>\n  </tbody>\n</table>\n"
 
 /***/ }),
 

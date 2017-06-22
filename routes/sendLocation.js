@@ -87,11 +87,6 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                 });
             });
             //endregion
-
-
-
-
-
         }
     })
 });

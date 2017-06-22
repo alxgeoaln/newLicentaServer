@@ -32,6 +32,7 @@ router.post('/sendEmail', requireAuth, function (req, res) {
 
             //region Add id to location object
             var userLength = user.length;
+            console.log(userLength);
             var id;
             if (userLength === 0) {
                 id = 1;

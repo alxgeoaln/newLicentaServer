@@ -29,6 +29,12 @@ router.post('/sendEmail', requireAuth, function (req, res) {
         if (err) {
             console.log(err)
         } else {
+
+            //region Add id to location object
+            var userLength = user.length;
+            var id = userLength + 1;
+            //endregion
+
             var userEmail = user.email;
             var name = user.name;
             var contacts = user.contact;
@@ -36,6 +42,7 @@ router.post('/sendEmail', requireAuth, function (req, res) {
                 return email.email
             });
             const location = new Location({
+                id: id,
                 lat: lat,
                 lng: lng,
                 address: address,

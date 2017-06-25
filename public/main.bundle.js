@@ -47,7 +47,7 @@ var LocationListComponent = (function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         __WEBPACK_IMPORTED_MODULE_1_rxjs_Rx__["Observable"].interval(3000)
-            .flatMap(function () { return _this.http.get('http://localhost:3000/getRequests/', { headers: headers })
+            .flatMap(function () { return _this.http.get('getRequests/', { headers: headers })
             .map(function (res) { return res.json(); }); })
             .subscribe(function (data) {
             _this.locations = data;
@@ -575,26 +575,26 @@ var GetLocationsService = (function () {
     GetLocationsService.prototype.getSpecificLocation = function (id) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.get(url + 'getRequests/' + id)
+        return this.http.get('getRequests/' + id)
             .map(function (res) { return res.json(); });
     };
     GetLocationsService.prototype.updateStatus = function (id) {
         console.log(id);
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.get(url + 'getRequests/updateStatus/' + id)
+        return this.http.get('getRequests/updateStatus/' + id)
             .map(function (res) { return res.json(); });
     };
     GetLocationsService.prototype.getLocations = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.get(url + 'getRequests/', { headers: headers })
+        return this.http.get('getRequests/', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     GetLocationsService.prototype.getAccidentsPerMonth = function () {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Headers */]();
         headers.append('Content-Type', 'application/json');
-        return this.http.get(url + 'getRequests/accidentsPerMonth', { headers: headers })
+        return this.http.get('getRequests/accidentsPerMonth', { headers: headers })
             .map(function (res) { return res.json(); });
     };
     ;

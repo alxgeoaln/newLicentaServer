@@ -14,14 +14,19 @@ router.get('/', function (req, res) {
 });
 //endregion
 
-router.get('/acc', function (req, res) {
+router.get('/accidentsPerMonth', function (req, res) {
     Location.getLocation(function (err, locations) {
         if (err) {
             res.json({success: false, message: 'Please try again later'});
             console.log(err);
         } else {
-           const date = new Date().getMonth();
-           res.json(date)
+            var locationArray = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+
+            locations.forEach(function (location) {
+                locationArray[location.createdAt.getMonth()]++;
+            });
+
+            res.json(locationArray);
         }
     })
 });
@@ -31,14 +36,14 @@ router.get('/:id', function (req, res) {
 
     var id = req.params.id;
 
-   Location.getThisLocation(id, function (err, location) {
-        if(err) {
+    Location.getThisLocation(id, function (err, location) {
+        if (err) {
             console.log(err);
             res.json({success: false, message: 'Cannot get specific location'})
         } else {
             res.json(location);
         }
-   })
+    })
 });
 //endregion
 
@@ -47,7 +52,7 @@ router.get('/updateStatus/:id', function (req, res) {
     var id = req.params.id;
 
     Location.updateStatus(id, function (err, status) {
-        if(err){
+        if (err) {
             console.log(err);
             res.json({success: false, message: 'Cannot update status'});
         } else {

@@ -8,8 +8,7 @@ var locationSchema = new Schema({
     createdAt: Date,
     author: String,
     address: String,
-    isActive: Boolean,
-    month: Number
+    isActive: Boolean
 });
 
 const Location = module.exports = mongoose.model('Location', locationSchema);
